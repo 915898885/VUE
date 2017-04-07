@@ -1,0 +1,1 @@
+在vue中触发事件，传递到actions中，actions传递参数给mutations，mutations进行运算，在getter中返回的值就是vue中显示的值
