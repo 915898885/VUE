@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>计算属性</title>
+	<script src="vue.js"></script>
+</head>
+<body>
+	<div id="app">
+	 这里是a=》{{a}}
+	 <br>
+	 <button @click="handle">click</button>
+	 <br>
+	 这里是b=》{{b}}
+	</div>
+</body>
+<script>
+	
+	new Vue({
+	  el: '#app',
+	  data: {
+	    a:1
+	  },
+	  methods:{
+	  	handle(){
+	  		this.a=5
+	  		//this.b=5在这里我们遇到一个问题  就是不论是this.a=5还是this.b=5执行的结果都一样
+
+	  	}
+	  },
+	  computed:{
+	  	b:{//在计算属性中，有两个默认的方法，一个是get，一个是set，get就是默认执行的方法，当你给b赋值后会执行set，set中的参数就是你给b赋的值，然后再执行get，
+	  		get(){
+	  			return this.a+2
+	  		},
+	  		set(val){
+	  			return this.a=val
+	  		}
+	  	}
+	  }
+	})
+</script>
+</html>
